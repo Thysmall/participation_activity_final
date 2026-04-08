@@ -17,7 +17,7 @@ class AlienInvasion:
         self.bg = pygame.transform.scale(self.bg,
             (self.settings.screen_w,self.settings.screen_h)
             )
-        self.screen.blit(self.bg,(0,0))
+        
         self.running = True
         self.clock = pygame.time.Clock()
         
@@ -30,6 +30,7 @@ class AlienInvasion:
                     pygame.quit()
                     sys.exit()
                     
+            self.screen.blit(self.bg,(0,0))
             pygame.display.flip()
             self.clock.tick(self.settings.FPS)
 
