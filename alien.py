@@ -28,13 +28,15 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
-        
-        # self.y = int(self.rect.y)
+        self.x = int(self.rect.x)
+        self.y = int(self.rect.y)
         
     def update(self):
-        """Updates the alien
+        """Moves the alien
         """
-        pass
+        temp_speed = self.settings.fleet_speed
+        self.x += temp_speed
+        self.rect.x = self.x
         
     def draw_alien(self):
         """Draws the alien
