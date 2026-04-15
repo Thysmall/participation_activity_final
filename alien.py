@@ -3,7 +3,7 @@ from pygame.sprite import Sprite
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from alien_invasion import AlienInvasion
+    from alien_fleet import AlienFleet
 
 class Alien(Sprite):
     """Stores functions about aliens
@@ -11,12 +11,11 @@ class Alien(Sprite):
     Args:
         Sprite (class): Used for collisions 
     """
-    def __init__(self, game: 'AlienInvasion', x: int, y: int) -> None:
+    def __init__(self, fleet: 'AlienFleet', x: int, y: int) -> None:
         super().__init__()
-        self.game = game
-        self.screen = game.screen
-        self.boundaries = game.screen.get_rect()
-        self.settings = game.settings
+        self.screen = fleet.game.screen
+        self.boundaries = fleet.game.screen.get_rect()
+        self.settings = fleet.game.settings
         
         #Image creation
         self.image = pygame.image.load(self.settings.alien_file)
