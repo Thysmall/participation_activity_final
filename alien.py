@@ -41,6 +41,11 @@ class Alien(Sprite):
         self.rect.y = self.y
         
     def check_edges(self):
+        """Checks if an alien hits an edge
+
+        Returns:
+            bool: True or False if an alien goes past the boundaries
+        """
         return (self.rect.right > self.boundaries.right or self.rect.left <= self.boundaries.left)
         
     def draw_alien(self):

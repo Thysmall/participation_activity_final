@@ -8,7 +8,8 @@ from game_stats import GameStats
 from time import sleep
 
 class AlienInvasion:
-    
+    """Main run file that manages the game and its functions
+    """
     def __init__(self) -> None:
         pygame.init()
         self.settings = Settings()
@@ -56,6 +57,8 @@ class AlienInvasion:
             self.clock.tick(self.settings.FPS)
 
     def _check_collisions(self):
+        """Runs different functions based on different collissions being checked
+        """
         # check collisisons for ship
         if self.ship.check_collisions(self.alien_fleet.fleet):
             self._check_game_status()
@@ -70,11 +73,14 @@ class AlienInvasion:
         if collissions:
             self.impact_sound.play()
             self.impact_sound.fadeout(500)
-            
+        
+        # check if fleet is destroyed
         if self.alien_fleet.check_destroyed_status():
             self._reset_level()     
             
     def _check_game_status(self):
+        """Changes lives and resets or stops game when run
+        """
         if self.game_stats.ships_left > 0:
             self.game_stats.ships_left -= 1
             self._reset_level()
@@ -85,6 +91,8 @@ class AlienInvasion:
         
         
     def _reset_level(self):
+        """Removes all sprites and creates a new fleet
+        """
         self.ship.arsenal.arsenal.empty()
         self.alien_fleet.fleet.empty()
         self.alien_fleet.create_fleet()

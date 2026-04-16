@@ -30,6 +30,8 @@ class Ship:
         self.arsenal = arsenal
 
     def _center_ship(self):
+        """Centers the ship on the screen
+        """
         self.rect.midbottom = self.boundaries.midbottom
         self.x = int(self.rect.x)
         
@@ -66,7 +68,15 @@ class Ship:
         return self.arsenal.fire_bullet()
     
     def check_collisions(self, other_group):
-        if pygame.sprite.spritecollideany(self, other_group):
+        """Checks if the ship collided with a passed in group
+
+        Args:
+            other_group (Group): A passed in group of sprites
+
+        Returns:
+            bool: True or false if it has collided or not
+        """
+        if pygame.sprite.spritecollideany(self, other_group): # type: ignore
             self._center_ship()
             return True
         return False
