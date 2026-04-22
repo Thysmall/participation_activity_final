@@ -14,6 +14,7 @@ class AlienInvasion:
     def __init__(self) -> None:
         pygame.init()
         self.settings = Settings()
+        self.settings.initialize_dynamic_settings()
         self.game_stats = GameStats(self.settings.starting_ship_count)
         
         #Create window
@@ -104,8 +105,6 @@ class AlienInvasion:
         #Setting up dynamic settings
         # Reset game stats
         # Update HUD scores
-        # Reset level
-        # Recenter the ship
         self._reset_level()
         self.ship._center_ship()
         self.game_active = True
