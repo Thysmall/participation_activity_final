@@ -113,6 +113,8 @@ class AlienInvasion:
         self.alien_fleet.create_fleet()
         
     def restart_game(self):
+        """Resets all values needed to start a new game
+        """
         self.settings.initialize_dynamic_settings()
         self.game_stats.reset_stats()
         self.HUD.update_scores()
@@ -152,6 +154,8 @@ class AlienInvasion:
                 self._check_button_clicked()
 
     def _check_button_clicked(self):
+        """Starts a new game if the play button is clicked
+        """
         mouse_pos = pygame.mouse.get_pos()
         if self.play_button.check_clicked(mouse_pos):
             self.restart_game()

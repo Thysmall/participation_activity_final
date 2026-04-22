@@ -17,22 +17,15 @@ class Settings:
         self.ship_w = 40
         self.ship_h = 60
         
-        
         #Bullet settings
         self.bullet_file = Path.cwd() / 'Assets' / 'images' / 'laserBlast.png'
         self.laser_sound = Path.cwd() / 'Assets' / 'sound' / 'laser.mp3'
-        
-        
-        
         
         #Alien settings
         self.alien_file = Path.cwd() / 'Assets' / 'images' / 'enemy_4.png'
         self.alien_w = 40
         self.alien_h = 40
-        
         self.fleet_direction = 1
-        
-        
         self.impact_sound = Path.cwd() / 'Assets' / 'sound' / 'impactSound.mp3'
         
         #Button settings
@@ -47,6 +40,8 @@ class Settings:
         self.font_file = Path.cwd() /'Assets' / 'Fonts' / 'Silkscreen' / 'Silkscreen-Bold.ttf'
         
     def initialize_dynamic_settings(self):
+        """Initializes the variables that are able to change
+        """
         self.ship_speed = 5
         self.starting_ship_count = 3
         
@@ -60,6 +55,8 @@ class Settings:
         self.alien_points = 50
     
     def increase_difficulty(self):
+        """Increases values to make the game harder
+        """
         self.ship_speed *= self.difficulty_scale
         self.bullet_speed *= self.difficulty_scale
         self.fleet_speed *= self.difficulty_scale
